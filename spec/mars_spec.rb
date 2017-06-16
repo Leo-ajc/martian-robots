@@ -26,18 +26,20 @@ describe Mars do
 
   describe '#move_robot' do
     it 'changes the coordinates of the robot' do
+      #robot_coordinates = [0, 3, 'W']
       robot_coordinates = {
         x: 0,
-        y: 0
+        y: 3
       }
-      @mars.add_robot(robot_coordinates, 'N')
+      @mars.add_robot(robot_coordinates, 'W')
       @mars.move_robot(
-        'F'
+        robot_coordinates,
+        'LLFF'
       )
       expect(
         Robot.all.first.current_pos
       ).to eq(
-        {:x=>0, :y=>1}
+        {:x=>2, :y=>3}
       )
     end
   end

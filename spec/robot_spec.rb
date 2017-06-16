@@ -7,7 +7,7 @@ describe Robot do
       # not using let because I need these instance
       # variables for testing below.
       @init_pos = {x: 1, y: 2}
-      @init_orientation =  'N'
+      @init_orientation =  0.0
       @robot = Robot.new(@init_pos, @init_orientation)
     end
 
@@ -24,7 +24,7 @@ describe Robot do
           @robot.change_orientation('L')
         }.to change{
           @robot.current_orientation
-        }.from('N').to('S')
+        }.from(0.0).to(1.5)
       end
     end
 

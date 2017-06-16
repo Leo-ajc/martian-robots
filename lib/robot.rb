@@ -1,6 +1,7 @@
 class Robot
+  ORIENTATIONS_RAD = [0.0,0.5,1.0,1.5].freeze
 
-  attr_accessor :current_pos, :current_orientation
+  attr_accessor :current_pos, :current_orientation, :lost
 
   def initialize(pos, orientation)
     @current_pos = pos
@@ -25,11 +26,13 @@ class Robot
     }
   end
 
-  def change_orientation(direction)
-    if direction == 'R'
-      @current_orientation = 'N'
-    elsif direction == 'L'
-      @current_orientation = 'S'
+  def change_orientation(phi)
+    current_index = ORIENTATIONS_RAD.find_index(@current_orientation)
+    if phi == 'R'
+      # Edge case doing > 360 should not return nil. Write test.
+      @current_orientation = ORIENTATIONS_RAD[(current_index + 1) % ORIENTATIONS_RAD.count]
+    elsif phi == 'L'
+      @current_orientation = ORIENTATIONS_RAD[(current_index - 1) % ORIENTATIONS_RAD.count]
     end
     self
   end

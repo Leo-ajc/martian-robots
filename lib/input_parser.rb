@@ -5,7 +5,8 @@ module InputParser
 
     input_file = File.readlines(input_file_location)
 
-    mars = Mars.new(10,10)
+    mars = Mars.new(*input_file[0].strip.split(" "))
+
     (1..input_file.length).step(3).each do |i| # not very robust...
       new_robot_params = input_file[i].strip.split(" ") # "1 1 E\n" >> ["1", "1", "E"]
       new_robot_pos = {
@@ -15,11 +16,8 @@ module InputParser
       new_robot_direction = new_robot_params[2]
       new_robot_movement = input_file[i+1].strip
 
-      mars.robots << [
-        new_robot_pos,
-        new_robot_direction,
-        new_robot_movement
-      ]
+      mars.add_robot(new_robot_pos, new_robot_direction)
+      mars.move_robot(new_robot_pos, new_robot_movement)
     end
     return mars
   end
