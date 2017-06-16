@@ -21,7 +21,7 @@ class Mars
       when 'F'
         robots.first.move
       when 'L', 'R'
-        'foo'
+        robot.change_orientation(letter)
       end
     end
     self
