@@ -13,4 +13,14 @@ describe Mars do
       expect(@mars.robots).to be_empty
     end
   end
+
+  describe 'add_robot' do
+    it 'stores Robot objects' do
+      expect{
+        @mars.add_robot({x: 2, y: 2}, 'W')
+      }.to change{
+        @mars.robots.count
+      }.from(0).to(1)
+    end
+  end
 end
