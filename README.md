@@ -4,7 +4,7 @@ bin/martian_robots.rb --load ./docs/sample_input.txt
 
 # Mars Robots Technical Tests
 
-Thank you for providing a interesting technical test. I understand that a technical test gives an opportunity to demonstrate that I can construct a object heiraky, encapulating discret behaviour within each object. I considered an approach like this
+Thank you for providing a interesting technical test. I understand that a technical test gives an opportunity to demonstrate that I can construct a object hierarchy, encapsulating discrete behaviour within each object. I considered an approach like this
 
 ```
 class L; end; class R; end; class F; end; ...
