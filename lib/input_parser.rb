@@ -1,8 +1,5 @@
-require 'mars'
-
 module InputParser
   def parse_input(input_file_location)
-
     input_file = File.readlines(input_file_location)
 
     mars = Mars.new(*input_file[0].strip.split(" "))

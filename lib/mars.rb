@@ -1,5 +1,3 @@
-require 'robot'
-
 class Mars
 
   COMPASS_DIRECTION_MAP = { # using radians, easier with vector calculus.
@@ -44,6 +42,24 @@ class Mars
       #to_output
     end
     self
+  end
+
+  def to_output
+    @robots.each do |robot|
+      out = ''
+      if robot.lost
+        out += "#{robot.lost[:x]} "
+        out += "#{robot.lost[:y]} "
+      else
+        out += "#{robot.current_pos[:x]} "
+        out += "#{robot.current_pos[:y]} "
+      end
+      out += rad_to_compass_direction(robot.current_orientation)
+      if robot.lost
+        out += " LOST"
+      end
+      puts out
+    end
   end
 
   private
